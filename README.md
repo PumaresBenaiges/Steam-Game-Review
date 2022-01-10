@@ -53,4 +53,6 @@ Al principi per estalviar temps he entrenat els models sense fer servir totes le
 Al no posar el paràmetre stopwords també s'obtenia millor accuracy, així que vol dir que aquestes paraules també eren importants per la predicció.
 
 ## Idees per treballar en un futur
-Es poden probar altres models i modificar alguns paràmetres.
+Es poden provar altres models i modificar alguns paràmetres.
+També es podria intentar augmentar la mida del dataset amb noves dades.
+I també intentar fer un model utilitzant altres paràmetres que es poden calcular a partir de la ressenya de l'usuari, com per exemple, nombre de paraules de la ressenya, nombre d'adjectius positius o negatius, llargada de les frases...
