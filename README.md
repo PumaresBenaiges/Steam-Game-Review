@@ -10,17 +10,18 @@ Hi ha 17494 dades d'entrenament i 8045 dades de test.
 Tenim 4 atributs:
  - Title: El nom del videojoc
  - Year: L'any de la valoració
- - User_review: El comentari que van fer per valorar el videojoc 
+ - User_review: Ressenya o comentari de valoració fet per un usuari 
  - User_suggestion: Un boolea que diu si l'usuari recomana el videojoc(1) o sino el recomana(0)
 
 ### Objectius del dataset
 Volem predir si l'usuari recomanarà el videojoc o no basant-nos en el comentari de valoració que ha fet i en altres atributs.
 
 ### Preprocessat
-Per poder utilitzar l'atribut que és un comentari l'haurem de passar matriu on cada columna serà una paraula.
-i per això he creat un nou atribut que és la concatenació del nom del videojoc, l'any de valoració i el comentari. Així al fer l'entrenamnet també es tindran en compte aquests valors.
+Per poder utilitzar l'atribut user_review, com que és un text, primer s'haurà de converir a una matriu, on cada columna serà una paraula de les que surten als comentaris.
+Per això s'ha creat un nou atribut que és la concatenació del nom del videojoc, l'any de valoració i el comentari. Així al fer l'entrenamnet també es tindran en compte aquests valors i sortiran com a columnes de la matriu.
 
 ### Models
+Per crear els models he fet servir una matriu creada a partir dels comentaris amb un CountVectorizer i amb un TfidfTransformer. Desprès he provat els següents models.
 | Model | Hiperparametres | Temps | Score |
 | -- | -- | -- | -- |
 | SGDClassifier        | penalty='l2', alpha=0.0001, max_iter=91, tol=0.01 |1.62s |  87.9 % |
@@ -36,7 +37,7 @@ i per això he creat un nou atribut que és la concatenació del nom del videojo
 
 AdaBoost amb n_estimators=100 arribava a un score de 82% però tardava molt més temps (20s).
 
-He intentat trobar els millors paràmetres pels 2 millors mètodes:
+Pels mètodes que funcionaven millor he intentat trobar els millors paràmetres:
 | Model | Hiperparametres | Temps | Score |
 | -- | -- | -- | -- |
 | SGDClassifier        | penalty='l2', alpha=0.0001, max_iter=90, tol=0.05 |1.63s |  88.1 % |
