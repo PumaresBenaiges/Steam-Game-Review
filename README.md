@@ -53,3 +53,4 @@ Al principi per estalviar temps he entrenat els models sense fer servir totes le
 Al no posar el paràmetre stopwords també s'obtenia millor accuracy, així que vol dir que aquestes paraules també eren importants per la predicció.
 
 ## Idees per treballar en un futur
+Es poden probar altres models i modificar alguns paràmetres.
