@@ -21,16 +21,23 @@ He creat un nou atribut que és la concatenació del nom del videojoc, l'any de 
 ### Model
 | Model | Hiperparametres | Temps | Score |
 | -- | -- | -- | -- |
-| SGDClassifier        |   |4.63s |  87.9 % |
-| Logistic Regression  |   | 4.77s |  88.4 % |
-| Perceptron           |    |4.46s |  85.1 % |
-| ComplementNB         |    |4.31s |  83.0 % |
-| MultinomialNB        |    |4.45s |  78.8 % |
-| Nearest Neighbors    |    |3.9s  |  74.7 % |
-| Decision Tree        |    |6.05s |  70.9 % |
-| Random Forest        |    |4.47s |  57.0 % |
-| Bagging              |    |4.94s |  59.3 % |
-| AdaBoost             |    |8.34s |  72.7 % |
+| SGDClassifier        | penalty='l2', alpha=0.0001, max_iter=91, tol=0.01 |1.62s |  87.9 % |
+| Logistic Regression  | C=12.0, fit_intercept=True, penalty='l2', tol=0.1 | 1.8s |  88.4 % |
+| Perceptron           | tol=0.005, random_state=0 |1.56s |  85.1 % |
+| ComplementNB         |    |1.54s |  83.0 % |
+| MultinomialNB        | alpha=1.0|1.58s |  78.8 % |
+| Nearest Neighbors    | n_neighbors=6  |1.6s  |  74.7 % |
+| Decision Tree        | max_depth=5  |2.56s |  70.9 % |
+| Random Forest        | max_depth=5, n_estimators=10, max_features=1  |1.93s |  57.0 % |
+| Bagging KNeighbors   | n_neighbors=3, max_samples=0.5, max_features=0.5 |2.4s |  59.3 % |
+| AdaBoost             | n_estimators=10 |3.44s |  72.7 % |
+AdaBoost amb n_estimators=100 arrivaba a un score de 82% però tardava molt més temps (50s).
+
+He intentat trobar els millors paràmetres pels 2 millors mètodes:
+| Model | Hiperparametres | Temps | Score |
+| -- | -- | -- | -- |
+| SGDClassifier        | penalty='l2', alpha=0.0001, max_iter=90, tol=0.05 |1.63s |  88.1 % |
+| Logistic Regression  | C=4.0, fit_intercept=True, penalty='l2', tol=0.1 | 1.87s |  88.9 % |
 
 
 ## Conclusions
