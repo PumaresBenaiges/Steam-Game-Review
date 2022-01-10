@@ -44,7 +44,7 @@ He intentat trobar els millors paràmetres pels 2 millors mètodes:
 
 
 ## Conclusions
-El millor model que s'ha aconseguit ha estat la regressió logística i i el SGDC classificador, els dos amb resultats molt similars, he obtingut un accuracy al voltant de 87%-88%.
+El millor model que s'ha aconseguit ha estat la regressió logística i i el SGD classificador (stochastic gradient descent), els dos amb resultats molt similars, he obtingut un accuracy al voltant de 87%-88%.
 
 El fet d'afegir l'any i el nom del videojoc al model no ha fet millorar gaire els resultats.
 
