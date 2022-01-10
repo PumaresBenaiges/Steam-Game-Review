@@ -18,9 +18,9 @@ Volem predir si l'usuari recomanarà el videojoc o no basant-nos en el comentari
 
 ### Preprocessat
 Per poder utilitzar l'atribut que és un comentari l'haurem de passar matriu on cada columna serà una paraula.
-He creat un nou atribut que és la concatenació del nom del videojoc, l'any de valoració i el comentari. Així al fer l'entrenamnet també es tindran en compte aquests valors.
+i per això he creat un nou atribut que és la concatenació del nom del videojoc, l'any de valoració i el comentari. Així al fer l'entrenamnet també es tindran en compte aquests valors.
 
-### Model
+### Models
 | Model | Hiperparametres | Temps | Score |
 | -- | -- | -- | -- |
 | SGDClassifier        | penalty='l2', alpha=0.0001, max_iter=91, tol=0.01 |1.62s |  87.9 % |
@@ -34,7 +34,7 @@ He creat un nou atribut que és la concatenació del nom del videojoc, l'any de 
 | Bagging KNeighbors   | n_neighbors=3, max_samples=0.5, max_features=0.5 |2.4s |  59.3 % |
 | AdaBoost             | n_estimators=10 |3.44s |  72.7 % |
 
-AdaBoost amb n_estimators=100 arrivaba a un score de 82% però tardava molt més temps (20s).
+AdaBoost amb n_estimators=100 arribava a un score de 82% però tardava molt més temps (20s).
 
 He intentat trobar els millors paràmetres pels 2 millors mètodes:
 | Model | Hiperparametres | Temps | Score |
@@ -46,9 +46,9 @@ He intentat trobar els millors paràmetres pels 2 millors mètodes:
 ## Conclusions
 El millor model que s'ha aconseguit ha estat la regressió logística i i el SGDC classificador, els dos amb resultats molt similars, he obtingut un accuracy al voltant de 87%-88%.
 
-Al afegir l'any i el nom del videojoc, no ha sigut una millora molt notable, el resultat només ha millorat en algunes decimes.
+El fet d'afegir l'any i el nom del videojoc al model no ha fet millorar gaire els resultats.
 
-Al principi per estalviar temps he entrenat els models sense fer servir totes les paraules, agafant només les que sortien més d'un cert nombre de vegades. Com més paraules s'agafen millor accuracy, com que tampoc era tan lent les he agafat totes.
+Al principi per estalviar temps he entrenat els models sense fer servir totes les paraules, agafant només les que sortien més d'un cert nombre de vegades. Com més paraules s'agafen millor accuracy, per això les he agafat totes.
 
 Al no posar el paràmetre stopwords també s'obtenia millor accuracy, així que vol dir que aquestes paraules també eren importants per la predicció.
 
