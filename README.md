@@ -4,8 +4,10 @@
 ### URL: [kaggle](https://www.kaggle.com/arashnic/game-review-dataset)
 
 ## Resum
-El dataset utilitza dades de valoracions de videojocs fetes per usuaris
-Tenim 17494 dades d'entrenament i 8045 dades de test. Tenim 4 atributs:
+El dataset utilitza dades de valoracions de videojocs fetes per usuaris.
+Hi ha 17494 dades d'entrenament i 8045 dades de test. 
+
+Tenim 4 atributs:
  - El nom del videojoc
  - L'any de la valoració
  - El comentari que van fer per valorar el videojoc 
@@ -31,7 +33,8 @@ He creat un nou atribut que és la concatenació del nom del videojoc, l'any de 
 | Random Forest        | max_depth=5, n_estimators=10, max_features=1  |1.93s |  57.0 % |
 | Bagging KNeighbors   | n_neighbors=3, max_samples=0.5, max_features=0.5 |2.4s |  59.3 % |
 | AdaBoost             | n_estimators=10 |3.44s |  72.7 % |
-AdaBoost amb n_estimators=100 arrivaba a un score de 82% però tardava molt més temps (50s).
+
+AdaBoost amb n_estimators=100 arrivaba a un score de 82% però tardava molt més temps (20s).
 
 He intentat trobar els millors paràmetres pels 2 millors mètodes:
 | Model | Hiperparametres | Temps | Score |
@@ -42,8 +45,11 @@ He intentat trobar els millors paràmetres pels 2 millors mètodes:
 
 ## Conclusions
 El millor model que s'ha aconseguit ha estat la regressió logística i i el SGDC classificador, els dos amb resultats molt similars, he obtingut un accuracy al voltant de 87%-88%.
+
 Al afegir l'any i el nom del videojoc, no ha sigut una millora molt notable, el resultat només ha millorat en algunes decimes.
+
 Al principi per estalviar temps he entrenat els models sense fer servir totes les paraules, agafant només les que sortien més d'un cert nombre de vegades. Com més paraules s'agafen millor accuracy, com que tampoc era tan lent les he agafat totes.
+
 Al no posar el paràmetre stopwords també s'obtenia millor accuracy, així que vol dir que aquestes paraules també eren importants per la predicció.
 
 ## Idees per treballar en un futur
